@@ -4,18 +4,25 @@ import javax.swing.*;
 
 public class MainView extends JFrame{
 
+	private JTabbedPane mainMenu;
+	private AddToCorralView addToCorralView;
 	
 	private MainView() {
-		super("Cuentas Contables");
+		super("Corrales");
 		setSize(600,500);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		mainMenu = new JTabbedPane();
+		addToCorralView = new AddToCorralView();
+		mainMenu.addTab("Alta de Crias",addToCorralView);
+		add(mainMenu);
+		
 		setVisible(true);
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		new MainView();
 	}
 
