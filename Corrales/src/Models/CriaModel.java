@@ -5,7 +5,7 @@ import java.sql.Statement;
 import Utils.SQLConnectionHelper;
 import ViewModels.Cria;
 
-public class CriaModel {
+public class CriaModel implements ISQLModel{
 
 	private Statement connHelper;
 	
@@ -13,8 +13,8 @@ public class CriaModel {
 		connHelper = SQLConnectionHelper.getConexion();
 	}
 	
-	public boolean doInsert(Cria cria) {
-		String statement = "insert into Crias values (CriaID ="+cria.getIdCria()+",FechaEntrada ="+cria.getEntryDate()+",Grasa ="+cria.getFat()+",Peso ="+cria.getWeigth()+",ColorMusculo ="+cria.getMusculeColor()+",ClasificacionID ="+cria.GetClasificationPerAtributes()+",CorralID = "+cria.getIdCorral()+")";
+	public boolean insertEntity(String[] cria) {
+		String statement = "insert into Crias values (CriaID ="+cria[0]+",FechaEntrada ="+cria[1]+",Grasa ="+cria[2]+",Peso ="+cria[3]+",ColorMusculo ="+cria[4]+",ClasificacionID ="+cria[5]+",CorralID = "+cria[6]+")";
 		return false;
 	}
 	

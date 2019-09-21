@@ -51,7 +51,7 @@ public class InsertView extends JPanel implements ActionListener{
 
 	}
 
-	private void createCenterPane(){
+	public void createCenterPane(){
 		JPanel center = new JPanel(new GridLayout(0,2,20,60));
 
 		builder = BuilderFactory.getBuilder(CmbInsertCombo.getSelectedIndex());
@@ -114,5 +114,14 @@ public class InsertView extends JPanel implements ActionListener{
 	private void listenButtons() {
 
 	}
+
+	public boolean isFirstTime() {
+		return firstTime;
+	}
+
+	public void setFirstTime(boolean firstTime) {
+		this.firstTime = firstTime;
+	}
+	
 
 }
