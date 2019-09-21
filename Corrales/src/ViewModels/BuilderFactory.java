@@ -7,12 +7,12 @@ public class BuilderFactory {
 	
 	public static IBuilder getBuilder(int type) {
 		switch(type) {
-		case CRIA_BUILDER:
-			break;
-		case CORRAL_BUILDER:
-			break;
+		case CRIA_BUILDER: return new CriaBuilder();
+
+		case CORRAL_BUILDER: return new CorralBuilder();
+			
+		default: return null;
 		}
-		return null;
 	}
 
 }

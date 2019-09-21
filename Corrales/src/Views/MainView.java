@@ -5,7 +5,7 @@ import javax.swing.*;
 public class MainView extends JFrame{
 
 	private JTabbedPane mainMenu;
-	private AddToCorralView addToCorralView;
+	private InsertView addToCorralView;
 	
 	private MainView() {
 		super("Corrales");
@@ -15,7 +15,7 @@ public class MainView extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		mainMenu = new JTabbedPane();
-		addToCorralView = new AddToCorralView();
+		addToCorralView = new InsertView();
 		mainMenu.addTab("Alta de Crias",addToCorralView);
 		add(mainMenu);
 		
