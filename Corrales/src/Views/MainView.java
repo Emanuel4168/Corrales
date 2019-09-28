@@ -1,11 +1,16 @@
 package Views;
 
+import java.util.List;
+
 import javax.swing.*;
 
-public class MainView extends JFrame{
+import Utils.IObserver;
+import Utils.ObserverParam;
+
+public class MainView extends JFrame implements IObserver{
 
 	private JTabbedPane mainMenu;
-	private InsertView addToCorralView;
+	private InsertView insertView;
 	
 	private MainView() {
 		super("Corrales");
@@ -15,8 +20,9 @@ public class MainView extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		mainMenu = new JTabbedPane();
-		addToCorralView = new InsertView();
-		mainMenu.addTab("Alta de Crias",addToCorralView);
+		insertView = new InsertView();
+		insertView.AddObserver(this);
+		mainMenu.addTab("Alta de Crias",insertView);
 		add(mainMenu);
 		
 		setVisible(true);
@@ -25,5 +31,14 @@ public class MainView extends JFrame{
 	public static void main(String[] args) {
 		new MainView();
 	}
+
+	@Override
+	public void Update(List<ObserverParam> params) {
+		int width = (int)params.get(0).content;
+		int heigth = (int)params.get(1).content;
+		
+		this.setSize(width,heigth);
+	}
+
 
 }
